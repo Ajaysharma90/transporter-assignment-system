@@ -1,0 +1,74 @@
+{
+  "info": {
+    "_postman_id": "dafcc734-6475-4160-ab64-79b41b047a01",
+    "name": "FreightFox – Transporter Assignment API.",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "60324402",
+    "_collection_link": "https://go.postman.co/collection/60324402-dafcc734-6475-4160-ab64-79b41b047a01?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Save Input Data",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"lanes\": [\r\n    {\r\n      \"id\": 1,\r\n      \"origin\": \"City A\",\r\n      \"destination\": \"City B\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"origin\": \"City B\",\r\n      \"destination\": \"City C\"\r\n    }\r\n  ],\r\n  \"transporters\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"Transporter A\",\r\n      \"laneQuotes\": [\r\n        {\r\n          \"laneId\": 1,\r\n          \"quote\": 1000\r\n        },\r\n        {\r\n          \"laneId\": 2,\r\n          \"quote\": 1500\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"name\": \"Transporter B\",\r\n      \"laneQuotes\": [\r\n        {\r\n          \"laneId\": 1,\r\n          \"quote\": 1200\r\n        },\r\n        {\r\n          \"laneId\": 2,\r\n          \"quote\": 1300\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/transporters/input",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "input"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Generate Transporter Assignments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"maxTransporters\": 2\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/transporters/assignment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "assignment"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
