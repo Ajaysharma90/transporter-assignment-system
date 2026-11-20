@@ -6,7 +6,7 @@ A Spring Boot REST API that assigns transporters to multiple logistics lanes whi
 
 - **Cost Minimization:** Finds the minimum total transportation cost.
 - **Maximum Transporter Utilization:** Uses the maximum feasible number of distinct transporters up to the user-defined limit.
-- **Full Lane Coverage:** Ensures every lane receives a transporter assignment.
+- **Full Lane Coverage:** Ensures every lane receives exactly one transporter assignment.
 - **REST APIs:** Provides endpoints for submitting lane and transporter quote data and generating optimized assignments.
 - **PostgreSQL Integration:** Stores lanes, transporters, and their quotes in a relational database.
 - **Input Validation:** Validates request data and handles invalid inputs.
@@ -27,7 +27,6 @@ A Spring Boot REST API that assigns transporters to multiple logistics lanes whi
 
 ```text
 transporter-assignment/
-│
 ├── src/
 │   ├── main/
 │   │   ├── java/com/ajay/transporter/
@@ -38,12 +37,9 @@ transporter-assignment/
 │   │   │   ├── dto/
 │   │   │   ├── exception/
 │   │   │   └── config/
-│   │   │
 │   │   └── resources/
 │   │       └── application.properties
-│   │
 │   └── test/
-│
 ├── pom.xml
 ├── mvnw
 ├── mvnw.cmd
@@ -82,13 +78,13 @@ Set the database password as an environment variable. Do not commit database cre
 
 - Java 21 or later
 - PostgreSQL
-- Maven (the included Maven Wrapper can also be used)
+- Maven (or the included Maven Wrapper)
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd transporter-assignment
+git clone https://github.com/Ajaysharma90/freightfox-transporter-assignment.git
+cd freightfox-transporter-assignment
 ```
 
 ### 2. Set the database password
@@ -99,7 +95,7 @@ On Windows PowerShell:
 $env:DB_PASSWORD = "YOUR_POSTGRESQL_PASSWORD"
 ```
 
-Use your local PostgreSQL password. Never publish it in source code.
+Replace the placeholder with your local PostgreSQL password. Never publish it in source code.
 
 ### 3. Build the application
 
@@ -206,7 +202,7 @@ POST /api/v1/transporters/assignment
 ```json
 {
   "status": "success",
-  "totalCost": 2500.00,
+  "totalCost": 2300.00,
   "assignments": [
     {
       "laneId": 1,
@@ -230,7 +226,7 @@ POST /api/v1/transporters/assignment
 }
 ```
 
-*The response above illustrates the API response structure.*
+*The response demonstrates the API response structure and an example optimized assignment.*
 
 ## Optimization Approach
 
@@ -272,8 +268,6 @@ Verified scenarios include:
 ## Author
 
 **Ajay Sharma**
-
-
 
 ---
 
