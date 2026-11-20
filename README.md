@@ -228,6 +228,24 @@ POST /api/v1/transporters/assignment
 
 *The response demonstrates the API response structure and an example optimized assignment.*
 
+## Postman Collection
+
+A Postman collection is included in the `postman/` directory for testing both REST API endpoints.
+
+### Import Instructions
+
+1. Open Postman.
+2. Click **Import**.
+3. Select the collection JSON file from the `postman/` directory.
+4. Start the Spring Boot application locally.
+5. Execute the requests in the following order:
+   - `Save Input Data`
+   - `Generate Transporter Assignments`
+
+**Base URL:** `http://localhost:8080`
+
+The collection includes sample request bodies for both endpoints.
+
 ## Optimization Approach
 
 The assignment algorithm follows these priorities:
